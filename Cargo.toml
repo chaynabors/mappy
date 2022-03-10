@@ -1,0 +1,10 @@
+[package]
+name = "mappy"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+bytemuck = { version = "1.8.0", features = ["derive"] }
+float-cmp = "0.9.0"
+nalgebra = { version = "0.30.1", features = ["bytemuck"] }
+nom = "7.1.0"
