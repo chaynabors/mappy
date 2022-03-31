@@ -147,7 +147,7 @@ mod tests {
         let cube = cube.unwrap();
         let cube = cube.clip(HalfSpace {
             point: point![0.0, 0.0, 0.1],
-            surface_info: SurfaceInfo::default_normal_unchecked(vector![0.0, 1.0, -1.0]),
+            surface_info: SurfaceInfo::default_normal_unchecked(vector![0.0, 0.0, -1.0]),
             ..Default::default()
         });
         assert!(cube.is_none());

@@ -5,7 +5,7 @@ use nom::error::VerboseError;
 use crate::Error;
 use crate::SurfaceInfo;
 
-pub const MAP_EPSILON: f32 = 0.0003;
+pub const MAP_EPSILON: f32 = 0.125;
 
 #[derive(Debug, Default)]
 pub struct Map<'a> {
@@ -101,7 +101,7 @@ mod parser {
     ) -> IResult<&'a str, Vector3<f32>, E> {
         mapp(
             tuple((char('('), ws, float, ws, float, ws, float, ws, char(')'))),
-            |(_, _, x, _, y, _, z, _, _)| Vector3::new(x, y, z)
+            |(_, _, x, _, y, _, z, _, _)| Vector3::new(x, z, y)
         )(i)
     }
 
@@ -121,7 +121,7 @@ mod parser {
                 let half_space = HalfSpace {
                     point: a.into(),
                     surface_info: SurfaceInfo {
-                        normal: UnitVector3::new_normalize((c - a).cross(&(b - a))),
+                        normal: UnitVector3::new_normalize((b - a).cross(&(c - a))),
                         x_offset: x,
                         y_offset: y,
                         rotation: r,
@@ -208,7 +208,6 @@ mod parser {
                 for facet in &polygon.facets {
                     map.vertex_counts.push(facet.vertices.len() as u32);
                     // Order the vertices to be drawn as a triangle strip
-                    // Push our first triangle in CCW order
                     map.vertices.push(facet.vertices[1]);
                     map.vertices.push(facet.vertices[0]);
                     map.vertices.push(facet.vertices[2]);
