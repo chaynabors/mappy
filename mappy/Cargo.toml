@@ -1,0 +1,9 @@
+[package]
+name = "mappy"
+version = "0.5.0"
+edition = "2021"
+
+[dependencies]
+glam = "0.22.0"
+mappy_parser = { path = "../mappy_parser" }
+thiserror = "1.0.37"

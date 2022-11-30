@@ -1,0 +1,12 @@
+[package]
+name = "mappy_compiler"
+version = "1.0.1"
+edition = "2021"
+categories = ["game-development"]
+description = "A library for compiling parsed mappy data into .mpy files"
+license = "MIT OR Apache-2.0"
+readme = "README.md"
+repository = "https://github.com/mappy-rs/mappy_parser"
+
+[dependencies]
+mappy = { path = "../mappy" }

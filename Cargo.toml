@@ -1,0 +1,6 @@
+[workspace]
+members = [
+    "mappy",
+    "mappy_compiler",
+    "mappy_parser",
+]

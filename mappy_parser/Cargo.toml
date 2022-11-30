@@ -1,0 +1,13 @@
+[package]
+name = "mappy_parser"
+version = "1.0.1"
+edition = "2021"
+categories = ["game-development", "parser-implementations"]
+description = "A library for parsing map files produced by tools like Trenchbroom and Hammer"
+license = "MIT OR Apache-2.0"
+readme = "README.md"
+repository = "https://github.com/mappy-rs/mappy_parser"
+
+[dependencies]
+glam = "0.22.0"
+nom = "7.1.1"
